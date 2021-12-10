@@ -44,13 +44,16 @@ function web_search() {
     # split by '/', then rejoin protocol (1) and domain (2) parts with '//'
     url="${(j://:)${(s:/:)urls[$1]}[1,2]}"
   fi
+  # opens new instance chrome browser
+  #open_command "$url"
 
-  open_command "$url"
+  # opens tab in existing browser 10-12-2021
+  qutebrowser --target tab "$url"
 }
 
 
 alias bing='web_search bing'
-alias google='web_search google'
+alias g='web_search google'
 alias yahoo='web_search yahoo'
 alias ddg='web_search duckduckgo'
 alias sp='web_search startpage'
